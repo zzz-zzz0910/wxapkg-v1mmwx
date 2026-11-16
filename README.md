@@ -1,5 +1,9 @@
 # wxapkg-v1mmwx
 
+[![CI](https://github.com/zzz-zzz0910/wxapkg-v1mmwx/actions/workflows/ci.yml/badge.svg)](https://github.com/zzz-zzz0910/wxapkg-v1mmwx/actions/workflows/ci.yml)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 微信 PC 端 **4.x** 小程序包（`V1MMWX` 加密容器）的解密、解包与 JS 模块提取工具。
 
 单文件、无框架、纯 Python。

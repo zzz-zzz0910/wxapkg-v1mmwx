@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 wxapkg-v1mmwx — 微信 PC 端 4.x 小程序包 (V1MMWX) 解密 / 解包 / 模块提取工具
 
@@ -89,7 +88,7 @@ def decrypt_v1mmwx(data: bytes, appid: str) -> tuple[bytes, str]:
         for body_skip in (0, 1):
             try:
                 plain = _aes_head(data, appid, head_skip) + _xor_body(data, appid, body_skip)
-            except Exception:
+            except ValueError:
                 continue
             if parse_index(plain) is not None:
                 return plain, f"head_skip={head_skip} body_skip={body_skip}"
@@ -229,7 +228,8 @@ def write_modules(buf: bytes, outdir: str) -> int:
 # ---------------------------------------------------------------------------
 
 def load_plain(path: str, appid: str) -> tuple[bytes, str]:
-    data = open(path, "rb").read()
+    with open(path, "rb") as f:
+        data = f.read()
     if data[:len(V1MMWX_MAGIC)] == V1MMWX_MAGIC:
         return decrypt_v1mmwx(data, appid)
     return data, "已是明文包"
@@ -303,7 +303,7 @@ def cmd_batch(args) -> int:
             n = write_modules(buf, os.path.join(outdir, "modules"))
             print(f"[+] {tag:40s} 文件={len(entries) if entries else 0:>3} 模块={n:>3}  {how}")
             ok += 1
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 — 单个文件失败不应中断批量处理
             print(f"[!] {tag}: {exc}", file=sys.stderr)
     print(f"\n[+] 完成 {ok}/{len(files)}")
     return 0
