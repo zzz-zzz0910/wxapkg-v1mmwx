@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 工具产物（不要提交逆向结果）
+*.dec.wxapkg
+*.decrypted.wxapkg
+out/
+output/
+*_files/
+*_modules/
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
