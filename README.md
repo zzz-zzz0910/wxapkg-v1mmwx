@@ -1,7 +1,7 @@
 # wxapkg-v1mmwx
 
 [![CI](https://github.com/zzz-zzz0910/wxapkg-v1mmwx/actions/workflows/ci.yml/badge.svg)](https://github.com/zzz-zzz0910/wxapkg-v1mmwx/actions/workflows/ci.yml)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/downloads/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 微信 PC 端 **4.x** 小程序包（`V1MMWX` 加密容器）的解密、解包与 JS 模块提取工具。
@@ -43,7 +43,7 @@
 pip install pycryptodome
 ```
 
-Python 3.9+。
+Python 3.10+（3.9 已于 2025-10 EOL，CI 不再覆盖）。
 
 ## 用法
 
